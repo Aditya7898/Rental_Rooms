@@ -1,0 +1,31 @@
+<ion-grid *ngIf="authenticatedUser">
+  <form [formGroup]="profileForm" (ngSubmit)="SaveProfile()">
+    <ion-item>
+      <ion-label floating>Email</ion-label>
+      <ion-input [value]="authenticatedUser.email" [readonly]="true"></ion-input>
+      <!-- <span>{{}}</span> -->
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Name</ion-label>
+      <ion-input formControlName="name" type="text" class="form-control"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>City</ion-label>
+      <ion-select formControlName="city">
+        <ion-option *ngFor="let city of cities" [value]="city.value" class="form-control">
+          {{city.value}}
+        </ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Phone</ion-label>
+      <ion-input formControlName="phone" type="number" class="form-control"></ion-input>
+    </ion-item>
+    <ion-row>
+      <button ion-button block [disabled]="profileForm.status == 'INVALID'">Update Profile</button>
+    </ion-row>
+  </form>
+</ion-grid>

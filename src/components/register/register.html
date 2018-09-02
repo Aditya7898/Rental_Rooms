@@ -1,0 +1,14 @@
+<ion-grid>
+  <ion-item>
+    <ion-label floating>Email</ion-label>
+    <ion-input type="email" [(ngModel)]="account.email"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>password</ion-label>
+    <ion-input type="password" [(ngModel)]="account.password"></ion-input>
+  </ion-item>
+  <ion-row>
+      <button ion-button block (click)="register()" [disabled]="!((account.email) && (account.password))">Sign up</button>
+  </ion-row>
+
+</ion-grid>

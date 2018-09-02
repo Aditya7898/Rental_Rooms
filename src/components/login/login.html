@@ -1,0 +1,19 @@
+<ion-grid>
+  <ion-item>
+    <ion-label floating>Email</ion-label>
+    <ion-input type="email" [(ngModel)]="account.email"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label floating>password</ion-label>
+    <ion-input type="password" [(ngModel)]="account.password"></ion-input>
+  </ion-item>
+  <ion-row>
+    <ion-col col-6>
+      <button ion-button block (click)="login()" [disabled]="!((account.email) && (account.password))">Login</button>
+    </ion-col>
+    <ion-col col-6>
+        <button ion-button block (click)="register()">Sign up</button>
+    </ion-col>
+  </ion-row>
+
+</ion-grid>
